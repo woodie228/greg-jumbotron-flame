@@ -1,0 +1,62 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="False" SupportsAction="False" SupportsTransition="False" SupportsTimeline="False" TimelineUseBack="False" MatteProvider="False" CommercialUsePermitted="True" ShaderType="Matchbox" SoftwareVersion="2017.0.0" LimitInputsToTexture="True" Version="2" Description="Animated Jumbotron-style LED screen texture filter." Name="Greg Jumbotron">
+   <Shader Clear="0" GridSubdivision="1" OutputBitDepth="Output" Index="1">
+      <Uniform Max="4" Min="0" Default="0" Inc="1" Tooltip="Choose the output view." Row="0" Col="0" Page="0" Type="int" ChannelName="Output Mode" DisplayName="Output Mode" Name="output_mode" ValueType="Popup">
+         <PopupEntry Title="Composite" Value="0">
+         </PopupEntry>
+         <PopupEntry Title="Jumbotron Only" Value="1">
+         </PopupEntry>
+         <PopupEntry Title="Texture Preview" Value="2">
+         </PopupEntry>
+         <PopupEntry Title="LED Matte" Value="3">
+         </PopupEntry>
+         <PopupEntry Title="Pixel Source" Value="4">
+         </PopupEntry>
+      </Uniform>
+      <Uniform ResDependent="None" Max="80.0" Min="2.0" Default="12.0" Inc="0.5" Tooltip="Distance between LED cells in pixels." Row="1" Col="0" Page="0" Type="float" ChannelName="Pixel Pitch" DisplayName="Pixel Pitch" Name="pixel_pitch">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.1" Default="0.72" Inc="0.01" Tooltip="Size of each lit LED inside its cell." Row="2" Col="0" Page="0" Type="float" ChannelName="LED Size" DisplayName="LED Size" Name="led_size">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.72" Inc="0.01" Tooltip="Darkness of the gaps between LED cells." Row="3" Col="0" Page="0" Type="float" ChannelName="Grid Darkness" DisplayName="Grid Darkness" Name="grid_darkness">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.48" Inc="0.01" Tooltip="Strength of horizontal electronic scanlines." Row="4" Col="0" Page="0" Type="float" ChannelName="Scanlines" DisplayName="Scanlines" Name="scanline_strength">
+      </Uniform>
+      <Uniform ResDependent="None" Max="32.0" Min="1.0" Default="3.0" Inc="0.25" Tooltip="Spacing of horizontal scanlines in pixels." Row="0" Col="1" Page="0" Type="float" ChannelName="Scan Spacing" DisplayName="Scan Spacing" Name="scanline_spacing">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.75" Inc="0.01" Tooltip="Amount of red/green/blue subpixel striping within each LED." Row="1" Col="1" Page="0" Type="float" ChannelName="RGB Triads" DisplayName="RGB Triads" Name="triad_amount">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.16" Inc="0.01" Tooltip="Per-cell animated brightness variation." Row="2" Col="1" Page="0" Type="float" ChannelName="Flicker" DisplayName="Flicker" Name="flicker_amount">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1000.0" Min="0.0" Default="0.0" Inc="0.01" Tooltip="Animate this value to move scanlines, flicker, and the refresh band." Row="3" Col="1" Page="0" Type="float" ChannelName="Animation Phase" DisplayName="Animation Phase" Name="animation_phase">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.22" Inc="0.01" Tooltip="Brightness of a rolling electronic refresh band." Row="4" Col="1" Page="0" Type="float" ChannelName="Refresh Band" DisplayName="Refresh Band" Name="refresh_band">
+      </Uniform>
+      <Uniform ResDependent="None" Max="0.5" Min="0.01" Default="0.08" Inc="0.005" Tooltip="Width of the rolling refresh band." Row="0" Col="2" Page="0" Type="float" ChannelName="Band Width" DisplayName="Band Width" Name="refresh_width">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.25" Inc="0.01" Tooltip="Fine interference pattern for filmed-screen texture." Row="1" Col="2" Page="0" Type="float" ChannelName="Moire" DisplayName="Moire" Name="moire_amount">
+      </Uniform>
+      <Uniform ResDependent="None" Max="3.0" Min="0.0" Default="0.35" Inc="0.01" Tooltip="Soft glow from bright screen edges." Row="2" Col="2" Page="0" Type="float" ChannelName="Edge Bloom" DisplayName="Edge Bloom" Name="edge_bloom">
+      </Uniform>
+      <Uniform ResDependent="None" Max="3.0" Min="0.0" Default="1.18" Inc="0.01" Tooltip="Contrast before the LED texture is applied." Row="3" Col="2" Page="0" Type="float" ChannelName="Contrast" DisplayName="Contrast" Name="contrast">
+      </Uniform>
+      <Uniform ResDependent="None" Max="3.0" Min="0.0" Default="1.25" Inc="0.01" Tooltip="Saturation before the LED texture is applied." Row="4" Col="2" Page="0" Type="float" ChannelName="Saturation" DisplayName="Saturation" Name="saturation">
+      </Uniform>
+      <Uniform ResDependent="None" Max="4.0" Min="0.0" Default="1.25" Inc="0.01" Tooltip="Brightness before the LED texture is applied." Row="0" Col="3" Page="0" Type="float" ChannelName="Brightness" DisplayName="Brightness" Name="brightness">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="1.0" Inc="0.01" Tooltip="Blend between the source and the Jumbotron composite." Row="1" Col="3" Page="0" Type="float" ChannelName="Mix" DisplayName="Mix" Name="mix_amount">
+      </Uniform>
+      <Uniform Row="2" Col="3" Page="0" Default="True" Tooltip="Pass source alpha through unchanged." Type="bool" ChannelName="Preserve Alpha" DisplayName="Preserve Alpha" Name="preserve_alpha">
+      </Uniform>
+      <Uniform Index="0" NoInput="Error" Tooltip="Image to receive the Jumbotron screen texture." DisplayName="Front" InputColor="67, 77, 83" Mipmaps="False" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR" Type="sampler2D" Name="input1">
+      </Uniform>
+   </Shader>
+   <Page Name="Greg Jumbotron" Page="0">
+      <Col Name="LED Grid" Col="0" Page="0">
+      </Col>
+      <Col Name="Animation" Col="1" Page="0">
+      </Col>
+      <Col Name="Screen Look" Col="2" Page="0">
+      </Col>
+      <Col Name="Output" Col="3" Page="0">
+      </Col>
+   </Page>
+</ShaderNodePreset>
