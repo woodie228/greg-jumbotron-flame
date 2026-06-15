@@ -14,9 +14,12 @@ Greg Jumbotron adds:
 - moire texture
 - a rolling refresh band
 - subtle edge bloom
+- an optional fake glossy reflection pass
 - preview modes for the texture, LED matte, and pixel source
 
 The main control to animate is `Animation Phase`. Keyframe that over the shot and the screen texture comes alive.
+
+There is also a `Reflection Pass` output mode if you want to use the fake glossy reflection separately or check it before blending it into the composite.
 
 It is a small thing, but it solves a real problem for me. I often need a screen to feel like a screen quickly, without building the same node setup from scratch every time.
 

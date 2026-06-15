@@ -7,8 +7,9 @@ Files
 
 What it does
 - Turns an image into an animated Jumbotron / stadium video-board look.
-- Adds LED cell quantization, dark gaps, RGB subpixel triads, scanlines, flicker, moire, a rolling refresh band, and subtle edge bloom.
+- Adds LED cell quantization, dark gaps, RGB subpixel triads, scanlines, flicker, moire, a rolling refresh band, subtle edge bloom, and an optional fake glossy reflection pass.
 - Animation Phase is the main control to keyframe for movement.
+- Reflection Amount turns the fake reflection layer on or off.
 
 Suggested first use
 1. Add Greg Jumbotron as a Matchbox shader.
@@ -27,6 +28,10 @@ Controls
 - Refresh Band / Band Width: rolling vertical screen refresh artifact.
 - Moire: fine filmed-screen interference.
 - Edge Bloom: subtle glow from bright screen detail.
+- Reflection Amount: amount of fake glossy reflection; set to 0 to turn it off.
+- Reflection Position / Width / Angle: place and shape the main reflection band.
+- Reflection Streaks: fine glint detail inside the reflection.
+- Reflection Tint: cool tint amount for the reflection.
 - Contrast / Saturation / Brightness: source shaping before the LED texture.
 - Mix: blend between the source and the processed look.
 

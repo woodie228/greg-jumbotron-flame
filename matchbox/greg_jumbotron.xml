@@ -1,6 +1,6 @@
 <ShaderNodePreset SupportsAdaptiveDegradation="False" SupportsAction="False" SupportsTransition="False" SupportsTimeline="False" TimelineUseBack="False" MatteProvider="False" CommercialUsePermitted="True" ShaderType="Matchbox" SoftwareVersion="2017.0.0" LimitInputsToTexture="True" Version="2" Description="Animated Jumbotron-style LED screen texture filter." Name="Greg Jumbotron">
    <Shader Clear="0" GridSubdivision="1" OutputBitDepth="Output" Index="1">
-      <Uniform Max="4" Min="0" Default="0" Inc="1" Tooltip="Choose the output view." Row="0" Col="0" Page="0" Type="int" ChannelName="Output Mode" DisplayName="Output Mode" Name="output_mode" ValueType="Popup">
+      <Uniform Max="5" Min="0" Default="0" Inc="1" Tooltip="Choose the output view." Row="0" Col="0" Page="0" Type="int" ChannelName="Output Mode" DisplayName="Output Mode" Name="output_mode" ValueType="Popup">
          <PopupEntry Title="Composite" Value="0">
          </PopupEntry>
          <PopupEntry Title="Jumbotron Only" Value="1">
@@ -10,6 +10,8 @@
          <PopupEntry Title="LED Matte" Value="3">
          </PopupEntry>
          <PopupEntry Title="Pixel Source" Value="4">
+         </PopupEntry>
+         <PopupEntry Title="Reflection Pass" Value="5">
          </PopupEntry>
       </Uniform>
       <Uniform ResDependent="None" Max="80.0" Min="2.0" Default="12.0" Inc="0.5" Tooltip="Distance between LED cells in pixels." Row="1" Col="0" Page="0" Type="float" ChannelName="Pixel Pitch" DisplayName="Pixel Pitch" Name="pixel_pitch">
@@ -46,6 +48,18 @@
       </Uniform>
       <Uniform Row="2" Col="3" Page="0" Default="True" Tooltip="Pass source alpha through unchanged." Type="bool" ChannelName="Preserve Alpha" DisplayName="Preserve Alpha" Name="preserve_alpha">
       </Uniform>
+      <Uniform ResDependent="None" Max="2.0" Min="0.0" Default="0.25" Inc="0.01" Tooltip="Amount of fake glossy reflection added over the screen. Set to 0 to turn it off." Row="0" Col="4" Page="0" Type="float" ChannelName="Reflection Amount" DisplayName="Reflection Amount" Name="reflection_amount">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.62" Inc="0.01" Tooltip="Vertical position of the main reflection band before angle is applied." Row="1" Col="4" Page="0" Type="float" ChannelName="Reflection Position" DisplayName="Reflection Position" Name="reflection_position">
+      </Uniform>
+      <Uniform ResDependent="None" Max="0.5" Min="0.01" Default="0.12" Inc="0.005" Tooltip="Width and softness of the main reflection band." Row="2" Col="4" Page="0" Type="float" ChannelName="Reflection Width" DisplayName="Reflection Width" Name="reflection_width">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="-1.0" Default="-0.08" Inc="0.01" Tooltip="Angle of the fake reflection. Values are rotations in turns." Row="3" Col="4" Page="0" Type="float" ChannelName="Reflection Angle" DisplayName="Reflection Angle" Name="reflection_angle">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.55" Inc="0.01" Tooltip="Amount of fine streaks and glints in the reflection." Row="4" Col="4" Page="0" Type="float" ChannelName="Reflection Streaks" DisplayName="Reflection Streaks" Name="reflection_streaks">
+      </Uniform>
+      <Uniform ResDependent="None" Max="1.0" Min="0.0" Default="0.35" Inc="0.01" Tooltip="Adds a slight cool blue tint to the reflection." Row="3" Col="3" Page="0" Type="float" ChannelName="Reflection Tint" DisplayName="Reflection Tint" Name="reflection_tint">
+      </Uniform>
       <Uniform Index="0" NoInput="Error" Tooltip="Image to receive the Jumbotron screen texture." DisplayName="Front" InputColor="67, 77, 83" Mipmaps="False" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR" Type="sampler2D" Name="input1">
       </Uniform>
    </Shader>
@@ -57,6 +71,8 @@
       <Col Name="Screen Look" Col="2" Page="0">
       </Col>
       <Col Name="Output" Col="3" Page="0">
+      </Col>
+      <Col Name="Reflection" Col="4" Page="0">
       </Col>
    </Page>
 </ShaderNodePreset>

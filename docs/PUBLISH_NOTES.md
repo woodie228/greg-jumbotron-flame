@@ -19,6 +19,12 @@ https://github.com/woodie228/greg-jumbotron-flame
 - `matchbox/greg_jumbotron.xml`
 - `matchbox/greg_jumbotron.mx`
 
+## Reflection Update
+
+- Added optional fake glossy reflection controls.
+- Added `Reflection Pass` output mode for rendering/checking the reflection layer alone.
+- `Reflection Amount` controls on/off behavior; `0.0` disables the reflection.
+
 ## Validation
 
 Built successfully in the Greg workspace with:

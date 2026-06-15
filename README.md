@@ -23,7 +23,8 @@ Source files are included too:
 - Adds animated scanlines and per-cell flicker.
 - Adds fine moire and a rolling refresh band.
 - Adds subtle edge bloom from bright screen detail.
-- Includes output modes for texture preview, LED matte, pixel source, and final composite.
+- Adds an optional fake glossy reflection pass for shiny screens.
+- Includes output modes for texture preview, LED matte, pixel source, reflection pass, and final composite.
 
 ## Install
 
@@ -47,10 +48,11 @@ If you prefer to compile locally, keep `greg_jumbotron.glsl` and `greg_jumbotron
 4. Switch `Output Mode` back to `Composite`.
 5. Animate `Animation Phase` upward over the shot.
 6. Use `Mix` to blend the processed look back over the original.
+7. Use `Reflection Amount` to add or remove the glossy reflection layer.
 
 ## Controls
 
-- `Output Mode`: Composite, Jumbotron Only, Texture Preview, LED Matte, Pixel Source.
+- `Output Mode`: Composite, Jumbotron Only, Texture Preview, LED Matte, Pixel Source, Reflection Pass.
 - `Pixel Pitch`: distance between LED cells in pixels.
 - `LED Size`: how much each LED fills its cell.
 - `Grid Darkness`: darkness of the gaps between LEDs.
@@ -66,6 +68,12 @@ If you prefer to compile locally, keep `greg_jumbotron.glsl` and `greg_jumbotron
 - `Contrast`, `Saturation`, `Brightness`: source shaping before the LED texture.
 - `Mix`: blends between the source and the processed result.
 - `Preserve Alpha`: keeps source alpha unchanged.
+- `Reflection Amount`: amount of fake glossy reflection; set to `0.0` to turn it off.
+- `Reflection Position`: vertical placement of the main reflection band before angle is applied.
+- `Reflection Width`: width and softness of the main reflection band.
+- `Reflection Angle`: diagonal angle of the reflection.
+- `Reflection Streaks`: fine streak and glint detail inside the reflection.
+- `Reflection Tint`: cool tint amount for the reflection.
 
 ## Suggested Starting Points
 
@@ -79,6 +87,7 @@ If you prefer to compile locally, keep `greg_jumbotron.glsl` and `greg_jumbotron
 - `Flicker`: `0.10` to `0.20`
 - `Refresh Band`: `0.15` to `0.30`
 - `Moire`: `0.15` to `0.30`
+- `Reflection Amount`: `0.15` to `0.35`
 - `Mix`: `1.0`
 
 ### Close Filmed Screen
@@ -91,7 +100,17 @@ If you prefer to compile locally, keep `greg_jumbotron.glsl` and `greg_jumbotron
 - `Flicker`: `0.15` to `0.30`
 - `Refresh Band`: `0.20` to `0.40`
 - `Moire`: `0.30` to `0.60`
+- `Reflection Amount`: `0.25` to `0.60`
 - `Mix`: `0.70` to `1.0`
+
+### Reflection Pass Only
+
+- `Output Mode`: `Reflection Pass`
+- `Reflection Amount`: `0.4` to `1.0`
+- `Reflection Position`: adjust to place the main glossy band.
+- `Reflection Width`: `0.06` to `0.18`
+- `Reflection Angle`: `-0.12` to `0.12`
+- `Reflection Streaks`: `0.35` to `0.85`
 
 ## Notes
 
